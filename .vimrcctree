@@ -135,6 +135,7 @@ nmap  <leader>cp <C-\>=<CR>
 set cscopequickfix=s-,c-,d-,i-,t-,e-
 nmap <C-n> :cnext<CR>
 nmap <C-p> :cprev<CR>
+imap <leader>e <Esc><CR>
 
 nnoremap <leader>q :q<CR>
 nnoremap <leader>wq :wq<CR>

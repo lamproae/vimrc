@@ -65,10 +65,6 @@ Bundle 'lamproae/tComment.vim'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-nmap <C-n> :cnext<CR>
-nmap <C-p> :cprev<CR>
-
 "nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 "nnoremap <leader>l :call ToggleLocationList()<CR>
 
@@ -136,6 +132,17 @@ nmap  <leader>cr <C-\><<CR>
 nmap  <leader>cm <C-\>-<CR>
 nmap  <leader>cp <C-\>=<CR>
 
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+nmap <C-n> :cnext<CR>
+nmap <C-p> :cprev<CR>
+
+nnoremap <leader>q :q<CR>
+nnoremap <leader>wq :wq<CR>
+
+" Taglist key map
+nnoremap <leader>tt :TlistToggle<CR>
+nnoremap <leader>to :TlistOpen<CR>
+"
 "  BundleUpdate
 "  BundleClean
 "  BundleList

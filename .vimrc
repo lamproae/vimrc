@@ -1,0 +1,142 @@
+set nu
+set autoindent
+set smartindent
+syntax on
+set cursorline
+set ruler
+set backspace=indent,eol,start
+set linespace=0
+set showmatch
+set incsearch
+set incsearch
+"set listchars=tab:\ ,trail:,extends:#,nbsp:. " Highlight problematic whitespace
+set shiftwidth=4
+set expandtab
+set tabstop=4
+set softtabstop=4
+set splitright
+set splitbelow
+let mapleader=','
+
+cmap cwd lcd %:p:h
+cmap cd. lcd %p:p:h
+
+" GoLang
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>e <Plug>(go-rename)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <leader>co <Plug>(go-coverage)
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+"call vundle#rc()
+" let Vundle manage Vundle, required
+
+" Repos on github"
+" Bundle 'gmarik/vundle'
+" Bundle 'scrooloose/nerdtree'
+Bundle 'Blackrush/vim-gocode'
+Bundle 'lamproae/vim-go'
+Bundle 'tpope/vim-markdown'
+"Repos vim-scripts on github"
+Bundle 'lamproae/cscope.vim'
+Bundle 'lamproae/taglist.vim'
+Bundle 'lamproae/grep.vim'
+Bundle 'lamproae/DirDiff.vim'
+Bundle 'lamproae/autoproto.vim'
+Bundle 'lamproae/c.vim'
+Bundle 'lamproae/CCTree'
+"Bundle 'lamproae/ctags.vim'
+Bundle 'lamproae/project.vim'
+Bundle 'lamproae/dbext.vim'
+Bundle 'lamproae/a.vim'
+Bundle 'lamproae/tComment.vim'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+nmap <C-n> :cnext<CR>
+nmap <C-p> :cprev<CR>
+
+"nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
+"nnoremap <leader>l :call ToggleLocationList()<CR>
+
+" cscope.vim key mapping
+" s: Find this C symbol
+"nnoremap  <leader>fs :call CscopeFind('s', expand('<cword>'))<CR>
+" g: Find this definition
+"nnoremap  <leader>fg :call CscopeFind('g', expand('<cword>'))<CR>
+" d: Find functions called by this function
+"nnoremap  <leader>fd :call CscopeFind('d', expand('<cword>'))<CR>
+" c: Find functions calling this function
+"nnoremap  <leader>fc :call CscopeFind('c', expand('<cword>'))<CR>
+" t: Find this text string
+"nnoremap  <leader>ft :call CscopeFind('t', expand('<cword>'))<CR>
+" e: Find this egrep pattern
+"nnoremap  <leader>fe :call CscopeFind('e', expand('<cword>'))<CR>
+" f: Find this file
+"nnoremap  <leader>ff :call CscopeFind('f', expand('<cword>'))<CR>
+" i: Find files #including this file
+"nnoremap  <leader>fi :call CscopeFind('i', expand('<cword>'))<CR>
+
+" project.vim key mapping
+" s: Find this C symbol
+nmap  <leader>fs :scs find s <C-R>=expand('<cword>')<CR><CR>
+" g: Find this definition
+nmap  <leader>fg :cs find g <C-R>=expand('<cword>')<CR><CR>
+" d: Find functions called by this function
+nmap  <leader>fd :cs find d <C-R>=expand('<cword>')<CR><CR>
+" c: Find functions calling this function
+nmap  <leader>fc :cs find c <C-R>=expand('<cword>')<CR><CR>
+" t: Find this text string
+nmap  <leader>ft :cs find t <C-R>=expand('<cword>')<CR><CR>
+" e: Find this egrep pattern
+nmap  <leader>fe :cs find e <C-R>=expand('<cword>')<CR><CR>
+" f: Find this file
+nmap  <leader>ff :cs find f <C-R>=expand('<cword>')<CR><CR>
+" i: Find files #including this file
+nmap  <leader>fi :cs find i <C-R>=expand('<cword>')<CR><CR>
+
+" s: Find this C symbol
+nmap  <leader>sfs :scs find s <C-R>=expand('<cword>')<CR><CR>
+" g: Find this definition
+nmap  <leader>sfg :scs find g <C-R>=expand('<cword>')<CR><CR>
+" d: Find functions called by this function
+nmap  <leader>sfd :scs find d <C-R>=expand('<cword>')<CR><CR>
+" c: Find functions calling this function
+nmap  <leader>sfc :scs find c <C-R>=expand('<cword>')<CR><CR>
+" t: Find this text string
+nmap  <leader>sft :scs find t <C-R>=expand('<cword>')<CR><CR>
+" e: Find this egrep pattern
+nmap  <leader>sfe :scs find e <C-R>=expand('<cword>')<CR><CR>
+" f: Find this file
+nmap  <leader>sff :scs find f <C-R>=expand('<cword>')<CR><CR>
+" i: Find files #including this file
+nmap  <leader>sfi :scs find i <C-R>=expand('<cword>')<CR><CR>
+
+
+" For grep in vim.
+nnoremap  <leader>rg :Rgrep<CR>
+"
+" For CCTree
+nnoremap  <leader>ci :CCTreeLoadDB ../cscope.out<CR>
+nmap  <leader>cf <C-\>><CR>
+nmap  <leader>cr <C-\><<CR>
+nmap  <leader>cm <C-\>-<CR>
+nmap  <leader>cp <C-\>=<CR>
+
+"  BundleUpdate
+"  BundleClean
+"  BundleList
+"  BundleSearch
